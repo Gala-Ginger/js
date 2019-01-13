@@ -1,8 +1,6 @@
 var age;
-age = 101;
+age = 1;
 
-if (age >= 14 && age <= 90) {
+if (!(age >= 14 && age <= 90)) {
 alert('ok');
-} else {
-  alert('false');
 }

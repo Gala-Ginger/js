@@ -1,9 +1,5 @@
-var sum = 0;
-
-while (true) {
-  var value = +prompt('Введите число');
-  if (!value) break;
-  sum += value;
+for (var i = 2; i <= 10; i++) {
+  if (i % 2 == 0) {
+    alert(i);
+  }
 }
-
-alert('Сумма ' + sum);

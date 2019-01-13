@@ -1,6 +1,9 @@
-var age;
-age = 1;
+var sum = 0;
 
-if (!(age >= 14 && age <= 90)) {
-alert('ok');
+while (true) {
+  var value = +prompt('Введите число');
+  if (!value) break;
+  sum += value;
 }
+
+alert('Сумма ' + sum);

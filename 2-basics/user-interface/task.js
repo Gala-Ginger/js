@@ -1,5 +1,5 @@
-var i = 0;
-while (i < 3) {
-  i++;
-  alert('номер ' + i);
-}
+var num;
+
+do {
+  num = prompt('Введите число больше 100', 0);
+} while (num <=100 && num != null);

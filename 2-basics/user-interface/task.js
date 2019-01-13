@@ -1,9 +1,20 @@
-var number = prompt('Напиши любое число', 0);
+var login = prompt('Логин', '');
 
-if (number > 0) {
-  alert('1');
-} else if (number < 0) {
-  alert('-1');
-} else {
-  alert('0');
-};
+if (login == 'Админ') {
+  var pass = prompt('Введите пароль', '');
+  if (pass == 'Черный властелин') {
+    alert('Добро пожаловать');
+  } else if (pass == null) {
+    alert('Вход отменен');
+  } else {
+    alert('Пароль не верен');
+  }
+}
+  else if (login == null) {
+    alert('Вход отменен');
+  }
+  else {
+    alert('Я вас не знаю');
+  }
+
+

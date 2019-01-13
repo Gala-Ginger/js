@@ -1,20 +1,8 @@
-var login = prompt('Логин', '');
+var age;
+age = 101;
 
-if (login == 'Админ') {
-  var pass = prompt('Введите пароль', '');
-  if (pass == 'Черный властелин') {
-    alert('Добро пожаловать');
-  } else if (pass == null) {
-    alert('Вход отменен');
-  } else {
-    alert('Пароль не верен');
-  }
+if (age >= 14 && age <= 90) {
+alert('ok');
+} else {
+  alert('false');
 }
-  else if (login == null) {
-    alert('Вход отменен');
-  }
-  else {
-    alert('Я вас не знаю');
-  }
-
-

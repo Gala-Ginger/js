@@ -1,7 +1,9 @@
-var qustion = prompt('Каково официальное название JavaScript?', '');
+var number = prompt('Напиши любое число', 0);
 
-if (qustion == 'ECMAScript') {
-  alert('Верно!');
+if (number > 0) {
+  alert('1');
+} else if (number < 0) {
+  alert('-1');
 } else {
-  alert('Не знаете? ECMAScript!');
+  alert('0');
 };

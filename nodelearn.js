@@ -1,17 +1,24 @@
 "use strict";
 
-var salaries = {
-  'Vasya': 100,
-  'Petya': 300,
-  'Dasha': 250
+var menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
 };
 
-var max = 0;
-var maxName = "";
-  for (var key in salaries) {
-  if (max < salaries[key]) {
-    max = salaries[key];
-    maxName = key;
+function isNumeric(n) {
+  return !isNaN(parseFloat(n) && isFinite(n))
+}
+
+function multiplyNumeric(obj) {
+  for (var key in obj) {
+    if (isNumeric(obj[key])) {
+      obj[key] *= 2;
+    }
   }
-  }
-console.log(maxName || "net");
+}
+
+
+multiplyNumeric(menu);
+
+console.log(menu.width, menu.height, menu.title)

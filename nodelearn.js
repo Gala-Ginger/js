@@ -1,8 +1,13 @@
-function truncate(str, maxlength) {
-  if (str.length > maxlength) {
-    return str.slice(0,maxlength-3) + "...";
-  } else {
-    return str;
+"use strict";
+
+var salaries = {
+  'Vasya': 100,
+  'Petya': 300,
+  'Dasha': 250
+};
+
+var sum = 0;
+  for (var key in salaries) {
+    sum += salaries[key];
   }
-}
-console.log(truncate('Вася в школу не ходил математику учил', 7))
+console.log(sum);

@@ -1,5 +1,8 @@
-function checkSpam(str) {
-  var lowerStr = str.toLowerCase();
-  return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
+function truncate(str, maxlength) {
+  if (str.length > maxlength) {
+    return str.slice(0,maxlength-3) + "...";
+  } else {
+    return str;
+  }
 }
-console.log(checkSpam("Xxxx"))
+console.log(truncate('Вася в школу не ходил математику учил', 7))

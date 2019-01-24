@@ -1,5 +1,5 @@
-function ucFirst(name) {
-  if (!name) return name;
- return name[0].toUpperCase() + name.slice(1);
+function checkSpam(str) {
+  var lowerStr = str.toLowerCase();
+  return !!(~lowerStr.indexOf('viagra') || ~lowerStr.indexOf('xxx'));
 }
-console.log(ucFirst(""))
+console.log(checkSpam("Xxxx"))

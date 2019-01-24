@@ -6,8 +6,12 @@ var salaries = {
   'Dasha': 250
 };
 
-var sum = 0;
+var max = 0;
+var maxName = "";
   for (var key in salaries) {
-    sum += salaries[key];
+  if (max < salaries[key]) {
+    max = salaries[key];
+    maxName = key;
   }
-console.log(sum);
+  }
+console.log(maxName || "net");

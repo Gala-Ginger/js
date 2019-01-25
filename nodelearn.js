@@ -1,15 +1,31 @@
-var arr = [1, 2, 3, 4, 5, 6, 'tic', 'tac', 'fuck'];
+var arr = [];
 
-function filterRange(arr, a, b) {
-  var result = [];
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i] >= a && arr[i] <= b) {
-      result.push(arr[i]);
-    }
-  }
-  return result;
+for (var i = 2; i < 100; i++) {
+  arr[i] = true;
 }
 
-var filtered = filterRange(arr, 2, 5);
-console.log(filtered);
-console.log(arr);
+var p = 2;
+
+do {
+
+  for (i = 2 * p; i < 100; i += p) {
+    arr[i] = false;
+  }
+
+  for (i = p + 1; i < 100; i++) {
+    if (arr[i]) break;
+  }
+
+  p = i;
+
+} while (p * p < 100);
+
+var sum = 0;
+for (i = 0; i < arr.length; i++) {
+  if (arr[i]) {
+    sum += i;
+  }
+}
+
+
+console.log(sum);

@@ -1,16 +1,15 @@
 var arr = [1, 2, 3, 4, 5, 6, 'tic', 'tac', 'fuck'];
 
-if ([].indexOf) {
-  var find = function(arr, value) {
-    return arr.indexOf(value);
-  }
-} else {
-  var find = function(arr, value) {
-    for (var i = 0; i < arr.length; i++) {
-      if (value === arr[i]) return i;
+function filterRange(arr, a, b) {
+  var result = [];
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] >= a && arr[i] <= b) {
+      result.push(arr[i]);
     }
-    return -1;
   }
+  return result;
 }
 
-console.log(find(arr, 4))
+var filtered = filterRange(arr, 2, 5);
+console.log(filtered);
+console.log(arr);

@@ -1,18 +1,12 @@
-var obj = {
-  className: 'open menu'
-};
+function camelize(str) {
+  var arr = str.split('-');
 
-function addClass(obj, cls) {
-  var classes = obj.className ? obj.className.split(' ') : [];
-
-  for (var i = 0; i < classes.length; i++) {
-    if (classes[i] == cls) return;
+  for (var i = 1; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
   }
-  classes.push(cls);
-  obj.className = classes.join(' ');
+
+  return arr.join('');
 }
 
-addClass(obj, 'new');
-addClass(obj, 'open');
-addClass(obj, 'me');
-console.log(obj.className);
+
+console.log(camelize('list-style-image'));

@@ -1,12 +1,18 @@
-function camelize(str) {
-  var arr = str.split('-');
+var obj = {
+  className: 'open menu my menu'
+};
 
-  for (var i = 1; i < arr.length; i++) {
-    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+function removeClass(obj, cls) {
+  var arr = obj.className.split(' ');
+  for (var i = 0; i < arr.length; i++) {
+    if (cls == arr[i]) {
+      arr.splice(i, 1);
+      i--;
+    }
   }
-
-  return arr.join('');
+  obj.className = arr.join(' ');
 }
 
+removeClass(obj, 'menu');
 
-console.log(camelize('list-style-image'));
+console.log(obj.className);

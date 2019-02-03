@@ -1,18 +1,15 @@
-var obj = {
-  className: 'open menu my menu'
-};
+var arr = [5, 3, 8, 1];
 
-function removeClass(obj, cls) {
-  var arr = obj.className.split(' ');
+function filterRangeInPlace(arr, a, b) {
   for (var i = 0; i < arr.length; i++) {
-    if (cls == arr[i]) {
-      arr.splice(i, 1);
-      i--;
+    var val = arr[i];
+    if (a > val || val > b) {
+      arr.splice(i--, 1);
     }
+
   }
-  obj.className = arr.join(' ');
+
 }
 
-removeClass(obj, 'menu');
-
-console.log(obj.className);
+filterRangeInPlace(arr, 1, 4);
+console.log(arr);

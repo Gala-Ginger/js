@@ -1,9 +1,14 @@
-var arr = [1, 2, 3, 4, 5, 6, 7]
+var vasya = { name: 'Вася', age: 23 };
+var masha = { name: 'Маша', age: 18 };
+var vovochka = { name: 'Вовочка', age: 6 };
 
-function sorting(a, b) {
-  return Math.random() - 0.5;
+var people = [ vasya, masha, vovochka ];
+
+function sortingAge(personA, personB) {
+return personA.age - personB.age;
 }
 
-arr.sort(sorting);
+people.sort(sortingAge);
 
-console.log(arr);
+
+console.log(people[0].age)

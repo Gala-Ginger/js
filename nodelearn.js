@@ -1,5 +1,9 @@
-var arr = ['HTML', 'JavaScript', 'CSS'];
+var arr = [1, 2, 3, 4, 5, 6, 7]
 
-var arrSorted = arr.slice().sort();
+function sorting(a, b) {
+  return Math.random() - 0.5;
+}
 
-console.log(arrSorted);
+arr.sort(sorting);
+
+console.log(arr);

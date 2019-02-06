@@ -1,7 +1,5 @@
-var arr = [5, 2, 1, -10, 8];
+var arr = ['HTML', 'JavaScript', 'CSS'];
 
-function compareReversed(a, b) {
-  return b - a;
-}
-arr.sort(compareReversed);
-console.log(arr);
+var arrSorted = arr.slice().sort();
+
+console.log(arrSorted);

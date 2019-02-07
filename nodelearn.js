@@ -1,14 +1,37 @@
-var vasya = { name: 'Вася', age: 23 };
-var masha = { name: 'Маша', age: 18 };
-var vovochka = { name: 'Вовочка', age: 6 };
+var list = {
+  value: 1,
+  next: {
+    value: 2,
+    next: {
+      value: 3,
+      next: {
+        value: 4,
+        next: null
+      }
+    }
+  }
+};
 
-var people = [ vasya, masha, vovochka ];
+function printList(list) {
 
-function sortingAge(personA, personB) {
-return personA.age - personB.age;
+  var tmp = list;
+
+  while (tmp) {
+    console.log ( tmp.value );
+    tmp = tmp.next;
+  }
 }
 
-people.sort(sortingAge);
+printList(list);
 
 
-console.log(people[0].age)
+function printReverseList(list) {
+
+  if(list.next) {
+    printReverseList(list.next);
+  }
+
+  console.log(list.value);
+}
+
+printReverseList(list);

@@ -1,37 +1,20 @@
-var list = {
-  value: 1,
-  next: {
-    value: 2,
-    next: {
-      value: 3,
-      next: {
-        value: 4,
-        next: null
-      }
-    }
-  }
-};
+var arr = ['воз', ' киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
 
-function printList(list) {
+function aclean(arr) {
 
-  var tmp = list;
+  var sort = {};
 
-  while (tmp) {
-    console.log ( tmp.value );
-    tmp = tmp.next;
-  }
-}
+  for (var i = 0; i < arr.length; i++) {
+    var sorted = arr[i].toLowerCase().split('').sort().join('');
 
-printList(list);
-
-
-function printReverseList(list) {
-
-  if(list.next) {
-    printReverseList(list.next);
+    sort[sorted] = arr[i];
   }
 
-  console.log(list.value);
-}
+  var result = [];
 
-printReverseList(list);
+  for (var key in sort) result.push(sort[key]);
+
+  return result;
+} 
+
+console.log(aclean(arr));

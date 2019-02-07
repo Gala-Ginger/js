@@ -1,20 +1,15 @@
-var arr = ['воз', ' киборг', 'корсет', 'ЗОВ', 'гробик', 'костер', 'сектор'];
+var arr = ['кришна', 'кришна', 'харе', 'харе', 'кришна', 'харе', '8-'];
 
-function aclean(arr) {
+function unique(arr) {
 
-  var sort = {};
+  var obj = {};
 
   for (var i = 0; i < arr.length; i++) {
-    var sorted = arr[i].toLowerCase().split('').sort().join('');
-
-    sort[sorted] = arr[i];
+    var sorted = arr[i];
+    obj[sorted] = true;
   }
 
-  var result = [];
-
-  for (var key in sort) result.push(sort[key]);
-
-  return result;
+  return Object.keys(obj);
 } 
 
-console.log(aclean(arr));
+console.log(unique(arr));

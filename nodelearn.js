@@ -1,15 +1,7 @@
-var arr = ['кришна', 'кришна', 'харе', 'харе', 'кришна', 'харе', '8-'];
+var arr = ['I', 'shall', 'not', 'live', 'in', 'vain'];
 
-function unique(arr) {
+var arrLength = arr.map(function(arrs) {
+  return arrs.length;
+});
 
-  var obj = {};
-
-  for (var i = 0; i < arr.length; i++) {
-    var sorted = arr[i];
-    obj[sorted] = true;
-  }
-
-  return Object.keys(obj);
-} 
-
-console.log(unique(arr));
+console.log(arrLength)

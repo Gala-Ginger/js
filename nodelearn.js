@@ -1,9 +1,10 @@
-function getWeekDay(date) {
-
-  var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-
-  return days[date.getDay()];
+function getDateAgo(date, days) {
+  var dateCopy = new Date(date);
+  
+  dateCopy.setDate(date.getDate() - days);
+  return dateCopy.getDate();
 }
 
-var date = new Date(2019, 1, 8)
-console.log(getWeekDay(date));
+var date = new Date(2019, 1, 8);
+
+console.log(getDateAgo(date, 68));

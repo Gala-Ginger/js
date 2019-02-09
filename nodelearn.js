@@ -1,9 +1,7 @@
-function getLastDayOfMonth(year, month) {
+function getSecondToday() {
+  var date = new Date();
 
-  var date = new Date(year, month + 1, 0);
-
-  return date.getDate(0)
+  return date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
 }
 
-
-console.log(getLastDayOfMonth(2018, 4));
+console.log(getSecondToday(2019, 1, 10));

@@ -1,9 +1,9 @@
-function getLocalDay(date) {
-  var day = date.getDay();
-  if (day == 0) {
-    day = 7;
-  }
-  return day;
+function getWeekDay(date) {
+
+  var days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+  return days[date.getDay()];
 }
 
-console.log(getLocalDay(new Date(2019, 1, 4)));
+var date = new Date(2019, 1, 8)
+console.log(getWeekDay(date));

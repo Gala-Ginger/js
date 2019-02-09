@@ -1,10 +1,9 @@
-function sum() {
-  var result = 0;
-
-  for (var i = 0; i < arguments.length; i++) {
-    result += arguments[i];
+function getLocalDay(date) {
+  var day = date.getDay();
+  if (day == 0) {
+    day = 7;
   }
-
-  return result;
+  return day;
 }
-console.log(sum(1, 2, 3));
+
+console.log(getLocalDay(new Date(2019, 1, 4)));

@@ -1,7 +1,15 @@
-function getSecondsToTomorrow() {
-  var date = new Date();
+function formatDate(date) {
+  var dd = date.getDate();
+  if (dd < 10) dd = "0" + dd;
 
-  return 86400 - (date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds());
+  var mm = date.getMonth() + 1;
+  if (mm < 10) mm = "0" + mm;
+
+  var yy = date.getFullYear() % 100;
+  if (yy < 10) yy = "0" + yy;
+
+  return dd + "." + mm + "." + yy;
 }
 
-console.log(getSecondsToTomorrow());
+var date = new Date(1986, 4, 22);
+console.log(formatDate(date));

@@ -1,10 +1,9 @@
-function getDateAgo(date, days) {
-  var dateCopy = new Date(date);
-  
-  dateCopy.setDate(date.getDate() - days);
-  return dateCopy.getDate();
+function getLastDayOfMonth(year, month) {
+
+  var date = new Date(year, month + 1, 0);
+
+  return date.getDate(0)
 }
 
-var date = new Date(2019, 1, 8);
 
-console.log(getDateAgo(date, 68));
+console.log(getLastDayOfMonth(2018, 4));

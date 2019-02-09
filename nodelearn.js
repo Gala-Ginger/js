@@ -1,15 +1,35 @@
 function formatDate(date) {
-  var dd = date.getDate();
-  if (dd < 10) dd = "0" + dd;
+  var diff = new Date() - date;
 
-  var mm = date.getMonth() + 1;
-  if (mm < 10) mm = "0" + mm;
+  if (diff < 1000) {
+    return "только что";
+  }
 
-  var yy = date.getFullYear() % 100;
-  if (yy < 10) yy = "0" + yy;
+  var sec = Math.floor(diff / 1000);
 
-  return dd + "." + mm + "." + yy;
+  if (sec < 60) {
+    return sec + " сек. назад";
+
+    var min = Math.floor(diff / 60000);
+    if (min < 60) {
+      return min + " мин. назад";
+    }
+
+    var d = date;
+    d = [
+      "0" + d.getDate(),
+      "0" + (d.getMonth() + 1),
+      "" + d.getFullYear(),
+      "0" + d.getHours(),
+      "0" + nd.getMinutes()
+    ];
+
+    for (var i = 0; i < d.length; i++) {
+      d[i] = d[i].slice(-2);
+    }
+    return d.slice(0, 3).join(".") + " " + d.slice(3).join(":");
+  }
 }
 
-var date = new Date(1986, 4, 22);
-console.log(formatDate(date));
+var date = new Date();
+console.log(formatDate(new Date(new Date - 86400 * 1000)));

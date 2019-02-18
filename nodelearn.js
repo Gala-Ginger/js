@@ -1,24 +1,7 @@
-function makeCounter() {
-  var currentCount = 1;
-
-  return {
-    // Получить следующее значение
-    getNext: function() {
-      return currentCount++;
-    },
-
-    // Поставить значение
-    set: function(value) {
-      currentCount = value;
-    },
-
-    // Обнулить счетчик
-    reset: function() {
-      currentCount = 1;
-    }
+function sum(a) {
+  return function(b) {
+    return a + b;
   };
 }
 
-var counter = makeCounter();
-
-console.log(counter.getNext());
+console.log(sum(2)(3));

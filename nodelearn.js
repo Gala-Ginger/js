@@ -1,7 +1,18 @@
-function sum(a) {
-  return function(b) {
-    return a + b;
+function makeBuffer() {
+  var buff = "";
+
+  return function (piece) {
+    if (arguments.length == 0) {
+      return buff;
+    }
+    buff += piece;
   };
 }
 
-console.log(sum(2)(3));
+var buffer = makeBuffer();
+
+buffer("Замыкания");
+buffer(" Использовать");
+buffer(" Нужно!");
+
+console.log(buffer());

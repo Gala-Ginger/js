@@ -1,18 +1,26 @@
-var calculator = {
-  sum: function() {
-    return this.a + this.b;
+var ladder = {
+  step: 0,
+
+  up: function() {
+    this.step++;
+    return this;
   },
 
-  mul: function() {
-    return this.a * this.b;
+  down: function() {
+    this.step--;
+    return this;
   },
 
-  read: function() {
-    this.a = +prompt("a?", 0);
-    this.b = +prompt("b?", 0);
+  showStep: function() {
+    console.log(this.step);
+    return this;
   }
 };
 
-calculator.read();
-console.log(calculator.sum(3, 2));
-console.log(calculator.mul(4, 5));
+ladder
+  .up()
+  .down()
+  .up()
+  .up()
+  .up()
+  .showStep();

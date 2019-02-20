@@ -1,26 +1,19 @@
-var ladder = {
-  step: 0,
+function sum(a) {
+  var currentSum = a;
 
-  up: function() {
-    this.step++;
-    return this;
-  },
-
-  down: function() {
-    this.step--;
-    return this;
-  },
-
-  showStep: function() {
-    console.log(this.step);
-    return this;
+  function f(b) {
+    currentSum += b;
+    return f;
   }
-};
 
-ladder
-  .up()
-  .down()
-  .up()
-  .up()
-  .up()
-  .showStep();
+  f.toString = function() {
+    return currentSum;
+  };
+
+  return f;
+}
+
+console.log(sum(1)(2));
+console.log(sum(5)(-1)(2));
+console.log(sum(6)(-1)(-2)(-3));
+console.log(sum(0)(1)(2)(3)(4)(5));

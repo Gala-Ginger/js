@@ -1,35 +1,18 @@
-var arr = [1, 2, 3, 4, 5, 6, 7];
+var calculator = {
+  sum: function() {
+    return this.a + this.b;
+  },
 
-function filter(arr, func) {
-  var result = [];
+  mul: function() {
+    return this.a * this.b;
+  },
 
-  for (var i = 0; i < arr.length; i++) {
-    var val = arr[i];
-    if (func(val)) {
-      result.push(val);
-    }
+  read: function() {
+    this.a = +prompt("a?", 0);
+    this.b = +prompt("b?", 0);
   }
-  return result;
-}
+};
 
-function inBetween(a, b) {
-  return function(x) {
-    return x >= a && x <= b;
-  };
-}
-
-function inArray(arr) {
-  return function(x) {
-    return arr.indexOf(x) != -1;
-  };
-}
-
-console.log(
-  filter(arr, function(a) {
-    return a % 2 == 0;
-  })
-);
-
-console.log(filter(arr, inBetween(3, 6)));
-
-console.log(filter(arr, inArray([1, 2, 10])));
+calculator.read();
+console.log(calculator.sum(3, 2));
+console.log(calculator.mul(4, 5));

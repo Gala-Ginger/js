@@ -1,19 +1,12 @@
-function sum(a) {
-  var currentSum = a;
+function Accumulator(startingValue) {
+  var value = startingValue;
 
-  function f(b) {
-    currentSum += b;
-    return f;
-  }
-
-  f.toString = function() {
-    return currentSum;
+  this.read = function() {
+    return (this.value += +prompt("a?", 0));
   };
-
-  return f;
 }
 
-console.log(sum(1)(2));
-console.log(sum(5)(-1)(2));
-console.log(sum(6)(-1)(-2)(-3));
-console.log(sum(0)(1)(2)(3)(4)(5));
+var accumulator = new Accumulator(1);
+accumulator.read();
+accumulator.read();
+console.log(accumulator.value);

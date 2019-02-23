@@ -1,31 +1,21 @@
-function User(fullName) {
-  this.fullName = fullName;
+function Article() {
+  this.created = new Date();
 
-  Object.defineProperties(this, {
-    firstName: {
-      get: function() {
-        return this.fullName.split(" ")[0];
-      },
-      set: function(newFirstName) {
-        this.fullName = newFirstName + " " + this.lastName;
-      }
-    },
-
-    lastName: {
-      get: function() {
-        return this.fullName.split(" ")[1];
-      },
-      set: function(newLastName) {
-        this.fullName = this.firstName + " " + newLastName;
-      }
-    }
-  });
+  Article.count++;
+  Article.last = this.created;
 }
 
-var vasya = new User("Василий Пупкин");
+Article.count = 0;
 
-console.log(vasya.firstName);
-console.log(vasya.lastName);
+Article.showStats = function() {
+  console.log("Всего: " + this.count + ", Последняя: " + this.last);
+};
 
-vasya.lastName = "Сидоров";
-console.log(vasya.fullName);
+new Article();
+new Article();
+
+Article.showStats();
+
+new Article();
+
+Article.showStats();

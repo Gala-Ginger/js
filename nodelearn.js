@@ -1,6 +1,5 @@
 function sumArg() {
-  arguments.reduce = [].reduce;
-  return arguments.reduce(function(a, b) {
+  return [].reduce.call(arguments, function(a, b) {
     return a + b;
   });
 }

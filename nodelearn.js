@@ -1,21 +1,8 @@
-function Article() {
-  this.created = new Date();
-
-  Article.count++;
-  Article.last = this.created;
+function sumArg() {
+  arguments.reduce = [].reduce;
+  return arguments.reduce(function(a, b) {
+    return a + b;
+  });
 }
 
-Article.count = 0;
-
-Article.showStats = function() {
-  console.log("Всего: " + this.count + ", Последняя: " + this.last);
-};
-
-new Article();
-new Article();
-
-Article.showStats();
-
-new Article();
-
-Article.showStats();
+console.log(sumArg(4, 5, 6));

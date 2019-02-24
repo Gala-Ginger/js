@@ -1,7 +1,10 @@
-var leader = {
-  name: "Василий Иванович",
-  age: 35
-};
+function printNumbersInterval() {
+  var i = 1;
+  var timerId = setInterval(function() {
+    console.log(i);
+    if (i == 20) clearInterval(timerId);
+    i++;
+  }, 100);
+}
 
-var leaderStr = JSON.stringify(leader);
-leader = JSON.parse(leaderStr);
+printNumbersInterval();

@@ -1,27 +1,18 @@
-"use strict";
+function work(a) {}
 
-function ask(question, answer, ok, fail) {
-  var result = prompt(question, "");
-  if (result.toLowerCase() == answer.toLowerCase()) ok();
-  else fail();
+function makeLogging(f, log) {
+  function wrapper(a) {
+    log.push(a);
+    return f.call(this, a);
+  }
+  return wrapper;
 }
+var log = [];
+work = makeLoging(work, log);
 
-var user = {
-  login: "Василий",
-  password: "123456",
+work(1);
+work(5);
 
-  loginDone: function(result) {
-    alert(this.login + (result ? " вошел на сайт" : " ошибка входа"));
-  }
-
-  checkPassword: function() {
-    ask(
-      "Ваш пароль?",
-      this.password,
-      this.loginDone.bind(this, true),
-      this.loginDone.bind(this, false)
-    );
-  }
-};
-
-user.checkPassword();
+for (var i = 0; i < log.length; i++) {
+  console.log("Лог:" + log[i]);
+}

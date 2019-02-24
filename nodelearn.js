@@ -1,25 +1,7 @@
-function f(x) {
-  return Math.random() * x;
-}
+var leader = {
+  name: "Василий Иванович",
+  age: 35
+};
 
-function makeCaching(f) {
-  var cach = {};
-
-  return function(x) {
-    if (!(x in cach)) {
-      cach[x] = f.call(this, x);
-    }
-    return cach[x];
-  };
-}
-
-f = makeCaching(f);
-
-var a, b;
-
-a = f(1);
-b = f(1);
-console.log(a == b);
-
-b = f(2);
-console.log(a == b);
+var leaderStr = JSON.stringify(leader);
+leader = JSON.parse(leaderStr);

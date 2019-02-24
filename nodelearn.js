@@ -1,23 +1,31 @@
-function sum() {
-  return [].reduce.call(arguments, function(a, b) {
-    return a + b;
-  });
+"use strict";
+
+function ask(question, answer, ok, fail) {
+  var result = prompt(question, "");
+  if (result.toLowerCase() == answer.toLowerCase()) ok();
+  else fail();
 }
 
-function mul() {
-  return [].reduce.call(arguments, function(a, b) {
-    return a * b;
-  });
-}
+var user = {
+  login: "Василий",
+  password: "123456",
 
-function applyAll(func) {
-  return func.apply(this, [].slice.call(arguments, 1));
-}
+  loginOk: function() {
+    alert(this.login + " вошел на сайт");
+  },
 
-console.log(applyAll(sum, 1, 2, 3));
+  loginFail: function() {
+    alert(this.login + ": ошибка входа");
+  },
 
-console.log(applyAll(mul, 2, 3, 4));
+  checkPassword: function() {
+    ask(
+      "Ваш пароль?",
+      this.password,
+      this.loginOk.bind(this),
+      this.loginFail.bind(this)
+    );
+  }
+};
 
-console.log(applyAll(Math.max, 2, -2, 3));
-
-console.log(applyAll(Math.min, 2, -2, 3));
+user.checkPassword();

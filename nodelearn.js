@@ -1,21 +1,25 @@
-function work(a, b) {
-  console.log(a + b);
+function f(x) {
+  return Math.random() * x;
 }
 
-function makeLogging(func, log) {
-  function wrapper() {
-    log.push([].slice.call(arguments));
-    return func.apply(this, arguments);
-  }
-  return wrapper;
-}
-var log = [];
-work = makeLogging(work, log);
+function makeCaching(f) {
+  var cach = {};
 
-work(1, 2);
-work(4, 5);
-
-for (var i = 0; i < log.length; i++) {
-  var args = log[i];
-  console.log("Лог:" + args.join());
+  return function(x) {
+    if (!(x in cach)) {
+      cach[x] = f.call(this, x);
+    }
+    return cach[x];
+  };
 }
+
+f = makeCaching(f);
+
+var a, b;
+
+a = f(1);
+b = f(1);
+console.log(a == b);
+
+b = f(2);
+console.log(a == b);

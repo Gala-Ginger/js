@@ -1,18 +1,21 @@
-function work(a) {}
+function work(a, b) {
+  console.log(a + b);
+}
 
-function makeLogging(f, log) {
-  function wrapper(a) {
-    log.push(a);
-    return f.call(this, a);
+function makeLogging(func, log) {
+  function wrapper() {
+    log.push([].slice.call(arguments));
+    return func.apply(this, arguments);
   }
   return wrapper;
 }
 var log = [];
-work = makeLoging(work, log);
+work = makeLogging(work, log);
 
-work(1);
-work(5);
+work(1, 2);
+work(4, 5);
 
 for (var i = 0; i < log.length; i++) {
-  console.log("Лог:" + log[i]);
+  var args = log[i];
+  console.log("Лог:" + args.join());
 }

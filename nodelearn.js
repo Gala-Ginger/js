@@ -10,20 +10,16 @@ var user = {
   login: "Василий",
   password: "123456",
 
-  loginOk: function() {
-    alert(this.login + " вошел на сайт");
-  },
-
-  loginFail: function() {
-    alert(this.login + ": ошибка входа");
-  },
+  loginDone: function(result) {
+    alert(this.login + (result ? " вошел на сайт" : " ошибка входа"));
+  }
 
   checkPassword: function() {
     ask(
       "Ваш пароль?",
       this.password,
-      this.loginOk.bind(this),
-      this.loginFail.bind(this)
+      this.loginDone.bind(this, true),
+      this.loginDone.bind(this, false)
     );
   }
 };

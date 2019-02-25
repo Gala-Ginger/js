@@ -1,37 +1,20 @@
-function Runner() {
-  this.steps = 0;
+function delay(f, ms) {
+  return function() {
+    var savedThis = this;
+    var savedArgs = arguments;
 
-  this.step = function() {
-    this.doSomethingHeavy();
-    this.steps++;
-  };
-
-  function fib(n) {
-    return n <= 1 ? n : fib(n - 1) + fib(n - 2);
-  }
-
-  this.doSomethingHeavy = function() {
-    for (var i = 0; i < 25; i++) {
-      this[i] = fib(i);
-    }
+    setTimeout(function() {
+      f.apply(savedThis, savedArgs);
+    }, ms);
   };
 }
 
-var runner1 = new Runner();
-var runner2 = new Runner();
+function f(x) {
+  console.log(x);
+}
 
-var t1 = setInterval(function() {
-  runner1.step();
-}, 15);
+var f1000 = delay(f, 1000);
+var f1500 = delay(f, 1500);
 
-var t2 = setTimeout(function go() {
-  runner2.step();
-  t2 = setTimeout(go, 15);
-}, 15);
-
-setTimeout(function() {
-  clearInterval(t1);
-  clearTimeout(t2);
-  console.log(runner1.steps);
-  console.log(runner2.steps);
-}, 5000);
+f1000("тест");
+f1500("тест2");

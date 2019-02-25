@@ -1,20 +1,26 @@
-function delay(f, ms) {
-  return function() {
-    var savedThis = this;
-    var savedArgs = arguments;
+function debounce(f, ms) {
 
-    setTimeout(function() {
-      f.apply(savedThis, savedArgs);
-    }, ms);
+  let timer = null;
+
+  return function(...args) {
+    const onComplete = () => {
+      f.apply(this, args);
+      timer = null;
+    }
+
+    if (timer) {
+      clearTimeout(timer);
+    }
+
+    timer = setTimeout(onComplete, ms);
   };
 }
 
-function f(x) {
-  console.log(x);
-}
+function f(x) { console.log(x) }
+let f = debounce(f, 1000);
 
-var f1000 = delay(f, 1000);
-var f1500 = delay(f, 1500);
+f(1);
+f(2);
 
-f1000("тест");
-f1500("тест2");
+setTimeout(function( { f(3) }, 1100 ));
+setTimeout(function( { f(4) }, 1200 ));
